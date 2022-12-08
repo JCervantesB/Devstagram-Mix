@@ -35,4 +35,5 @@ class Post extends Model
     {
         return $this->likes->contains('user_id', $user->id);
     }
+
 }

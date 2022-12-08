@@ -18,7 +18,9 @@
             </div>
 
             <div>
-                <p class="font-bold"> {{ $post->user->username }} </p>
+                <a href="{{ route('posts.index', $post->user ) }} " class="font-bold">
+                    {{$post->user->username}}
+                </a>
                 <p class="text-sm text-gray-500">
                     {{ $post->created_at->diffForHumans() }}
                 </p>
@@ -53,8 +55,8 @@
                         <div class="bg-green-500 p-2 rounded-lg mb-6 text-white text-center uppercase font-bold">
                             {{session('mensaje')}}
                         </div>
-                    @endif
-
+                        
+                    @endif                    
 
                     <form action="{{ route('comentarios.store', ['post' => $post, 'user' => $user ] ) }}" method="POST">
                         @csrf
