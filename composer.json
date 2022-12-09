@@ -41,8 +41,7 @@
         ],
         "post-update-cmd": [
             "@php artisan vendor:publish --tag=laravel-assets --ansi --force",
-            "chgrp -R www-data storage public/uploads",
-            "chmod -R ug+rwx storage public/uploads"
+            "chmod -R 777 storage bootstrap/cache public/uploads"
         ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
