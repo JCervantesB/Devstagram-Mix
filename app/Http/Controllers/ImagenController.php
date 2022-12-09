@@ -18,11 +18,9 @@ class ImagenController extends Controller
         $imagenServidor = Image::make($imagen);
         $imagenServidor->fit(1000, 1000);
 
-        if (!is_dir(public_path('uploads'))) {
-            mkdir(public_path('uploads'), 0775, true);
-        }
-
-        $imagenPath = public_path('uploads') . '/' . $nombreImagen;
+        // $imagenPath = public_path('uploads') . '/' . $nombreImagen;
+        // $imagenServidor->save($imagenPath);
+        $imagenPath = storage_path('app/public/uploads') . '/' . $nombreImagen;
         $imagenServidor->save($imagenPath);
 
         return response()->json(['imagen' => $nombreImagen ]);
