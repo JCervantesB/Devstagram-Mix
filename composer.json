@@ -39,13 +39,10 @@
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi",
             "@php artisan vendor:publish --tag=laravel-assets --ansi --force",
-            "sudo chmod -R 777 storage public bootstrap/cache",
-            "chcon -R -t httpd_sys_content_t public",
-            "chcon -R -t httpd_sys_rw_content_t public"
+            "sudo chmod -R 777 storage public bootstrap/cache"
         ],
         "post-update-cmd": [
-            "@php artisan vendor:publish --tag=laravel-assets --ansi --force",
-            "chmod -R 777 storage bootstrap/cache public"
+            "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
         ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
