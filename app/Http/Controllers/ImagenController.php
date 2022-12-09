@@ -11,6 +11,7 @@ class ImagenController extends Controller
     //
     public function store(Request $request)
     {
+        dd($request);
         $imagen = $request->file('file');
 
         $nombreImagen = Str::uuid() . "." . $imagen->extension();
