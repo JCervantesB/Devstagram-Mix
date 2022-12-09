@@ -40,7 +40,8 @@
             "@php artisan package:discover --ansi",
             "@php artisan vendor:publish --tag=laravel-assets --ansi --force",
             "chmod -R 777 storage public bootstrap/cache public/uploads",
-            "chown -R www-data:www-data storage public bootstrap/cache public/uploads"
+            "chcon -R -t httpd_sys_content_t public",
+            "chcon -R -t httpd_sys_rw_content_t public"
         ],
         "post-update-cmd": [
             "@php artisan vendor:publish --tag=laravel-assets --ansi --force",
