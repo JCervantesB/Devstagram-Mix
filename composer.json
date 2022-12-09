@@ -39,8 +39,8 @@
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi",
             "@php artisan vendor:publish --tag=laravel-assets --ansi --force",
-            "@php artisan optimize:clear",
-            "chmod -R 777 storage bootstrap/cache public/uploads"
+            "chmod -R 777 storage public bootstrap/cache public/uploads",
+            "chown -R www-data:www-data storage public bootstrap/cache public/uploads"
         ],
         "post-update-cmd": [
             "@php artisan vendor:publish --tag=laravel-assets --ansi --force",
