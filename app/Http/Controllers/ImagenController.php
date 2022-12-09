@@ -18,6 +18,7 @@ class ImagenController extends Controller
         $imagenServidor = Image::make($imagen);
         $imagenServidor->fit(1000, 1000);
 
+        
         $imagenPath = public_path('uploads') . '/' . $nombreImagen;
         $imagenServidor->save($imagenPath);
 

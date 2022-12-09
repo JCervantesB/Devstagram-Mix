@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\PostController;
@@ -61,3 +62,8 @@ Route::delete('/{user:username}/unfollow', [FollowerController::class, 'destroy'
 if (App::environment('production')) {
     URL::forceScheme('https');
 }
+
+// linkstorage
+Route::get('/linkstorage', function () {
+    Artisan::call('storage:link');
+});
