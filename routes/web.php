@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\PostController;
@@ -55,3 +56,7 @@ Route::get('/{user:username}', [PostController::class, 'index'])->name('posts.in
 // Siguiendo a Usuarios
 Route::post('/{user:username}/follow', [FollowerController::class, 'store'])->name('users.follow');
 Route::delete('/{user:username}/unfollow', [FollowerController::class, 'destroy'])->name('users.unfollow');
+
+Route::get('/linkstorage', function () {
+    Artisan::call('storage:link');
+});
