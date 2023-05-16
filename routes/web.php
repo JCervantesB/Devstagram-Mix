@@ -60,3 +60,8 @@ Route::delete('/{user:username}/unfollow', [FollowerController::class, 'destroy'
 Route::get('/linkstorage', function () {
     Artisan::call('storage:link');
 });
+
+Route::get('/setpermisos', function () {
+    Artisan::call('chmod', ['--recursive' => true, '777', 'public/uploads']);
+    return 'Permissions set successfully!';
+});
